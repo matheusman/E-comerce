@@ -12,10 +12,21 @@
     font-family: var(--font-familyPopp);
 }   
 
+.app {
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 label {
     cursor: text;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
 }

@@ -28,7 +28,7 @@
 
 .placeholderInput {
     position: absolute;
-    left: 1%;
+    left: 3%;
     letter-spacing: normal;
     font-family: var(--font-familyPopp);
     font-size: 1rem;
@@ -72,3 +72,4 @@
     color: rgb(240, 118, 118);
     padding: .5rem 1rem;
 }
+

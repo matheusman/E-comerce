@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles/Input.module.css";
+import PasswordTerms from "./PasswordTerms";
 
 type inputComponents = React.ComponentProps<"input"> & {
   type: string;
@@ -22,7 +23,6 @@ function Input({
   type,
   label,
   name,
-  verify,
   setValue,
   onChange,
   onBlur,
@@ -57,7 +57,8 @@ function Input({
         <label htmlFor={name} className={`${styles.placeholderInput} ${animation()}`}>{label}</label>
       </div>
       <div>
-        {error && <p className={styles.error}>{error}</p>}
+        {error ? <p className={styles.error}>{error}</p> : <p className={styles.error}></p>}
+        
       </div>
     </div>
   );

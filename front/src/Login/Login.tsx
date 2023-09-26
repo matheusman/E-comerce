@@ -1,11 +1,13 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom';
-import LoginForm from './LoginCreate';
+import LoginCreate from './LoginCreate';
+import LoginForm from './LoginForm';
 
 function Login() {
   return (
     <Routes>
         <Route path="/" element={<LoginForm />} />
+        <Route path="/create" element={<LoginCreate />}/>
     </Routes>
   )
 }

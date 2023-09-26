@@ -2,7 +2,9 @@ import express, { Router } from "express";
 import router from "./Router/router";
 import cors from 'cors';
 import path from "path";
+import dotenv from 'dotenv';
 import mongoose from 'mongoose'
+dotenv.config();
 
 class Server {
   app: express.Application;

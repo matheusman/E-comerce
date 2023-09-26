@@ -1,7 +1,9 @@
 import React from "react";
+import { CREATE_CLIENTE_ACOUNT, createUserFetch } from "./api";
+import useFetch from "./Hooks/useFetch";
 
 type globalContext = {
-    data : string;
+    createUser? : Promise<createUserFetch>;
 }
 
 const GlobalContext = React.createContext<null | globalContext>(null)
@@ -13,5 +15,5 @@ export const UserData = () : globalContext => {
 }
 
 export function GlobalUser ({ children } : React.PropsWithChildren)  {
-    return (<GlobalContext.Provider value={{data : 'user'}}>{children}</GlobalContext.Provider>)
+    return (<GlobalContext.Provider value={{}}>{children}</GlobalContext.Provider>)
 }

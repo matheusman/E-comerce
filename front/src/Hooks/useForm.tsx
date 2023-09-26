@@ -1,6 +1,6 @@
 import React from "react";
 
-type eventInput = React.ChangeEvent<HTMLInputElement>
+type eventInput = React.ChangeEvent<HTMLInputElement>;
 
 type inputTypesRegex = {
   email: {
@@ -41,13 +41,12 @@ const typesInput = {
   },
 
   cpf: {
-    regex:
-    /(?:\d{3}[-.\s]?){3}\d{2}/,
+    regex: /^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}-?[0-9]{2})$/,
     error: "CPF invalido",
   },
 
   password: {
-    regex: /^(?=.*[a-z])[\d\w\W]{6}$/gi,
+    regex: /^(?=.*[A-Z])(?=.*[!#@$%&])?(?=.*[0-9])(?=.*[a-z]).{6,25}$/,
     error: "Senha invalida",
   },
   cep: {
@@ -59,7 +58,7 @@ const typesInput = {
     error: "Nome invalido",
   },
   data: {
-    regex: /^(0?[1-9]|[12][0-9]|3[01])[/-](0?[1-9]|1[012])[/-]\d{4}$/,
+    regex: /(\d{2}[\s/-]?){2}\d{4}$/,
     error: "Coloque sua data de nascimento",
   },
   phone: {
@@ -72,7 +71,6 @@ export default function useForm<K extends keyof inputTypesRegex>(input?: K) {
   const [value, setValue] = React.useState<string>("");
   const [active, setActive] = React.useState<boolean>(false);
   const [error, setError] = React.useState<null | string>(null);
-  const [index, setIndex] = React.useState<number>(1)
 
   function validate(value: string) {
     if (input === undefined) return true;
@@ -89,8 +87,36 @@ export default function useForm<K extends keyof inputTypesRegex>(input?: K) {
       return true;
     }
   }
-  
+
+
+  // function dateChange (event: eventInput) { // futuro
+  //   const regex = /[\D]+/gi
+  //   const lastLetter = event.target.value[event.target.value.length - 1]
+  //   const data = value.replace(regex, '') + lastLetter
+  //   console.log(regex.test(lastLetter))
+  //   if (lastLetter === 'A') {
+  //     data[data.length - 1]
+  //   }
+  //   if (regex.test(lastLetter)) return false
+  //   if (value.length === 0) {
+  //     return setValue(() => 'DD/MM/AAAA'.replace('D', lastLetter))
+  //   }
+  //   if (data.length >= 5 ) {
+  //     setValue(value.replace('A', lastLetter))
+  //   } else if (data.length >= 3) {
+  //     setValue(value.replace('M', lastLetter))
+  //   } else {
+  //     setValue(value.replace('D', lastLetter))
+  //   }
+
+  // }
+
+
+  //regex data : /(\d{2}[\s-/]?){2}\d{4}/
+
+
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+     // futuro
     if (error) validate(value);
     setValue(event.target.value);
   };
@@ -100,6 +126,11 @@ export default function useForm<K extends keyof inputTypesRegex>(input?: K) {
   };
 
   const onBlur: React.FocusEventHandler<HTMLInputElement> = (event) => {
+    if (input === "data") {
+      if (value.length === 1 || value.length === 4) {
+        return setValue(event.target.value + '/');
+      }
+    }
     validate(value);
     setActive(false);
   };

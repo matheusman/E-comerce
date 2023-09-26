@@ -1,0 +1,21 @@
+.social {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.socialNav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    grid-column-start: 5;
+}
+
+.footer {
+    height: 20%;
+    background-color: rgba(63, 63, 63, 0.795);
+    width: 100%;
+    display: grid;
+    padding: 1rem .8rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}

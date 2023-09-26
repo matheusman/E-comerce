@@ -1,0 +1,24 @@
+.loginForm {
+    margin: auto;
+    background: var(--background-body);
+    padding: 40px;
+    width: 70%;
+}
+
+.login  {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: .3rem;
+}
+
+@media (max-width : 500px) {
+    .login {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+}
+
+.EmailCreate {
+    grid-area: 'email';
+}

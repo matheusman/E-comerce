@@ -1,4 +1,16 @@
 .loginForm {
-    background: var(--background-body);
-    padding: 40px;
+}
+
+.loginStart {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 10px;
+    height: 27rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.7);
+    margin: auto;
+    width: 40%;
 }

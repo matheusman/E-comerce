@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
     password : {type : String, required : true, minLength : 6},
     cpf : { type : String, required : true, minLength : 11, unique : true, maxLength : 14},
     dateBrith : { type : Date, required : true},
+    phone : { type : String, required : true},
     date : {type : Date, default : Date.now }
 })
 

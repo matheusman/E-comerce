@@ -1,8 +1,8 @@
 export default function validateCPF (value : string) {
     let soma = 0
     let resto = 0
-    
-    if (value === '000000000-00') return false
+    value = value.replace(/[\D]+/g, '')
+    if (value === '00000000000') return false
     if (value.length !== 11) return false
     for (let index = 1; index < 10; index++ ) {
         const subtrair = 11

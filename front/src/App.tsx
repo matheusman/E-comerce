@@ -12,12 +12,14 @@ function App() {
     <>
       <BrowserRouter>
         <GlobalUser>
+          <div className="app">
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/authenticate/*" element={<Login />} />
           </Routes>
           <Footer />
+          </div>
         </GlobalUser>
       </BrowserRouter>
     </>
