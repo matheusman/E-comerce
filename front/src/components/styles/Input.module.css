@@ -35,6 +35,10 @@
     user-select: none;
 }
 
+#phone {
+    letter-spacing: 2px;
+}
+
 .active {
     animation: inputAnime .5s ease forwards ;
     pointer-events: none;

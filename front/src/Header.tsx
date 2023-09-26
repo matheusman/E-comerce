@@ -1,19 +1,29 @@
 import React from "react";
 import styles from "./styles/Header.module.css";
-import Input from "./components/Input";
-import useForm from "./Hooks/useForm";
-import Button from "./components/Button";
 import { Link } from "react-router-dom";
-import { Search } from 'lucide-react';
+import Search from './components/Search'
+import ButtonSearch from "./components/ButtonSearch";
 
+
+export type focusSearch = {
+  focus : boolean;
+  setFocus : React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 function Header() {
   
+  const [focus, setFocus] = React.useState<boolean>(false);
+
   return (
     <div>
       
-      <form className={styles.grid}>
-        <Link to="/"><Button id="e" className={styles.button}><Search width='20px'/></Button></Link>
+      <form className={styles.header}>
+        <div></div>
+        <div className={styles.flex}>
+          <Search focus={focus} setFocus={setFocus}/>
+          <ButtonSearch focus={focus} setFocus={setFocus} />
+        </div>
+        <div></div>
       </form>
     </div>  
   );

@@ -7,11 +7,9 @@ import HomePageIndex from './HomePageIndex'
 function Home() {
   return (
     <div>
-      <Header/>
         <Routes>
           <Route path='/' element={<HomePageIndex />}/>
         </Routes>
-      <Footer/>
 
     </div>
   )

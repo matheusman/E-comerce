@@ -9,8 +9,8 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-
-}
+    font-family: var(--font-familyPopp);
+}   
 
 label {
     cursor: text;

@@ -29,7 +29,7 @@ function LoginForm() {
         <Input type="password" name="password" id="passwordLine" label="Confirmar senha" {...confirmPassword}/>
         <Input type="text" name="cpf" maxLength={14} label="CPF" {...cpf}/>
         <Input type="text" name="data" label="Data de nascimento" {...data}/>
-        <Input type="text" name="phone" label="Telefone" {...phone}/>
+        <Input type="text" name="phone" id="phone" label="Telefone" {...phone}/>
       </div>
     </form>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './Button.module.css'
+import styles from './styles/Button.module.css'
 
 type buttonTypes = React.ComponentProps<'button'> & React.PropsWithChildren<{
     id? : string;

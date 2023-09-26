@@ -1,5 +1,7 @@
 import React from "react";
 
+type eventInput = React.ChangeEvent<HTMLInputElement>
+
 type inputTypesRegex = {
   email: {
     regex: RegExp;
@@ -40,12 +42,12 @@ const typesInput = {
 
   cpf: {
     regex:
-      /^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}-?[0-9]{2})$/,
+    /(?:\d{3}[-.\s]?){3}\d{2}/,
     error: "CPF invalido",
   },
 
   password: {
-    regex: /^(?=.*[a-z])[0-9a-zA-Z$*&@#]{8,}$/,
+    regex: /^(?=.*[a-z])[\d\w\W]{6}$/gi,
     error: "Senha invalida",
   },
   cep: {
@@ -70,6 +72,7 @@ export default function useForm<K extends keyof inputTypesRegex>(input?: K) {
   const [value, setValue] = React.useState<string>("");
   const [active, setActive] = React.useState<boolean>(false);
   const [error, setError] = React.useState<null | string>(null);
+  const [index, setIndex] = React.useState<number>(1)
 
   function validate(value: string) {
     if (input === undefined) return true;
@@ -86,12 +89,9 @@ export default function useForm<K extends keyof inputTypesRegex>(input?: K) {
       return true;
     }
   }
-
+  
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     if (error) validate(value);
-    if (input === 'phone') {
-      setValue('(__)_____-____')
-    }
     setValue(event.target.value);
   };
 

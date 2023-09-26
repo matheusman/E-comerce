@@ -27,7 +27,7 @@ class Server {
   }
 
   backConnect () {
-    mongoose.connect('mongodb://localhost:27017/e-comerce').then( () => {
+    mongoose.connect('mongodb://localhost:27017/e-comerce-pod').then( () => {
       console.log('Banco rodadando')
     }).catch( err => {
       console.log(err)
