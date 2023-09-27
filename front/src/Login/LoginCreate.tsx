@@ -36,7 +36,8 @@ function LoginCreate() {
     });
 
     const response = await fetch(url, options);
-    console.log(response);
+    const json = await response.json()
+    console.log(json);
   }
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {

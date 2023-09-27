@@ -1,4 +1,5 @@
 .loginForm {
+    box-sizing: border-box;
 }
 
 .loginStart {
@@ -9,7 +10,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    
+
     box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.7);
     margin: auto;
     width: 40%;

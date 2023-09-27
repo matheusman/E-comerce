@@ -23,7 +23,6 @@ function Input({
   type,
   label,
   name,
-  setValue,
   onChange,
   onBlur,
   onClick,
