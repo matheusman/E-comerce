@@ -8,7 +8,7 @@
 .login  {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, minmax(5rem, 1fr));
     gap: .3rem;
 }
 
@@ -17,8 +17,4 @@
         grid-template-columns: 1fr;
         width: 100%;
     }
-}
-
-.EmailCreate {
-    grid-area: 'email';
 }

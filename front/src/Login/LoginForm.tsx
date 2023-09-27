@@ -8,7 +8,7 @@ import { UserData } from "../globalContext";
 function LoginForm() {
   const email = useForm();
   const password = useForm();
-  const { getToken } = UserData()
+  const { getToken, error, loading } = UserData()
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
@@ -22,7 +22,8 @@ function LoginForm() {
       <form onSubmit={handleSubmit} className={styles.loginForm}>
         <Input type="text" name="email" label="Email" {...email} />
         <Input type="password" name="password" label="Senha" {...password} />
-        <Button>Logar</Button>
+        {loading ? <Button disabled>Carregando...</Button>: <Button>Logar</Button>}
+        {error && <div>{error}</div>}
       </form>
     </div>
   );

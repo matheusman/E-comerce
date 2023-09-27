@@ -11,6 +11,7 @@
 }
 
 .header {
+    top: 0px;
     position: fixed;
     width: 100%;
     display: grid;
@@ -19,6 +20,7 @@
     border: 1px solid black;
     padding: 1rem 2.5rem;
     z-index: 100;
+    height: var(--heigth-header);
 }
 
 .flex {
@@ -42,13 +44,18 @@
     border-right: none;
 }
 
+.search, .button {
+    transition: all 0.3s;
+
+}
+
 .search::placeholder {
     font-size: 15px;
     letter-spacing: 1px;
 }
 
 .focusHeader {
-    box-shadow: 2px 2px 2px 2px yellow;
+    box-shadow: 1px 1px 3px 2px rgba(181, 218, 133, 0.603);
 }
 
 .button {

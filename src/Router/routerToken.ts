@@ -5,4 +5,5 @@ const routerToken : Router = Router()
 
 routerToken.get('/verify', jwtVirify)
 
+
 export default routerToken

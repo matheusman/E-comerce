@@ -3,6 +3,7 @@
 :root {
     --background-body : white;
     --font-familyPopp : 'Poppins', sans-serif;
+    --heigth-header : 6rem;
 }
 
 * {
@@ -11,6 +12,10 @@
     box-sizing: border-box;
     font-family: var(--font-familyPopp);
 }   
+
+body {
+    padding-top: 4rem;
+}
 
 .app {
     height: 120vh;

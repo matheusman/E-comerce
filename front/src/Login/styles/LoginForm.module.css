@@ -1,9 +1,9 @@
 .loginForm {
     box-sizing: border-box;
-    margin-top: 10rem;
 }
 
 .loginStart {
+    margin-top: var(--heigth-header);
     border: 1px solid rgba(0, 0, 0, 0.2);
     padding: 2rem;
     border-radius: 10px;
@@ -11,8 +11,6 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-
-    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.7);
     margin: auto;
-    width: 40%;
+    width: 35%;
 }

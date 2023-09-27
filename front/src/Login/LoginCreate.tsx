@@ -9,6 +9,7 @@ import Button from "../components/Button";
 import PasswordTerms from "../components/PasswordTerms";
 
 function LoginCreate() {
+  const { error, createClientAcount, loading } = UserData()
   const username = useForm("username");
   const email = useForm("email");
   const password = useForm("password");
@@ -26,18 +27,14 @@ function LoginCreate() {
     const phoneEnd = phone.value.replace(regex, "");
     const cpfEnd = cpf.value.replace(regex, "");
 
-    const { url, options } = CREATE_CLIENTE_ACOUNT({
-      username: username.value,
-      email: email.value,
-      password: password.value,
-      cpf: cpfEnd,
-      dateBrith: new Date(ano, mes, dia),
-      phone: phoneEnd,
-    });
-
-    const response = await fetch(url, options);
-    const json = await response.json()
-    console.log(json);
+    await createClientAcount({
+      username : username.value,
+      email : email.value,
+      password : password.value,
+      cpf : cpfEnd,
+      phone : phoneEnd,
+      dateBrith : new Date(ano, mes, dia)
+    })
   }
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
@@ -54,6 +51,9 @@ function LoginCreate() {
       createUserFetch();
     }
   };
+  React.useEffect( () => {
+    console.log(loading)
+  }, [loading])
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit}>
       <h2>Create account</h2>
@@ -87,7 +87,11 @@ function LoginCreate() {
           {...phone}
         />
       </div>
-      <Button>Criar Conta</Button>
+
+      {error && <div className={error}>error</div>}
+      
+      {loading ? <Button disabled>Carregando...</Button> : <Button>Criar Conta</Button>}
+      
     </form>
   );
 }
