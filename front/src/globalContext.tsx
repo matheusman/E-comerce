@@ -92,7 +92,7 @@ export function GlobalUser({ children }: React.PropsWithChildren) {
         userLogout();
       }
     },
-    [userLogout]
+    [userLogout, navigate]
   );
 
   async function getToken(body: GET_USER) {
