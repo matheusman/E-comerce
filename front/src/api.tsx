@@ -19,6 +19,15 @@ export type GET_USER = {
   password: string;
 };
 
+export type tokenGet = {
+  token : string;
+}
+
+export type GET_USER_TOKEN_VERIFY = {
+  email : string;
+  username : string;
+  id : string;
+}
 
 export const CREATE_CLIENTE_ACOUNT = (
   body: createUserFetch

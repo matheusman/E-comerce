@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./styles/Header.module.css";
-import { Link } from "react-router-dom";
+import { User } from 'lucide-react';
+import { Link, NavLink } from "react-router-dom";
 import Search from './components/Search'
 import ButtonSearch from "./components/ButtonSearch";
+import logo from './assets/logo-triangular.png'
 
 
 export type focusSearch = {
@@ -18,12 +20,18 @@ function Header() {
     <div>
       
       <form className={styles.header}>
-        <div></div>
+        <NavLink to="/" className={styles.logo}>
+          <img height="60px" src={logo}/>
+        </NavLink>
         <div className={styles.flex}>
           <Search focus={focus} setFocus={setFocus}/>
           <ButtonSearch focus={focus} setFocus={setFocus} />
         </div>
-        <div></div>
+        <nav className={styles.user}>
+          <User />
+          <NavLink to="/authenticate">Login</NavLink>
+          <NavLink to="/authenticate/create">Criar</NavLink>
+        </nav>
       </form>
     </div>  
   );
