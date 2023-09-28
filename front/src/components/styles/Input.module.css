@@ -3,7 +3,7 @@
     padding: 2px;
 }
 
-.input {
+.input, .inputLoginIcon {
     border: 1px solid rgb(0, 0, 0, 0.2);
     position: relative;
     width: 100%;
@@ -14,7 +14,11 @@
     border-radius: 5px;
 }
 
-.input:focus {
+.inputLoginIcon, .loginLabel {
+    padding: .6rem 2.5rem;
+}
+
+.input:focus, .icon {
     border : 1px solid rgba(204, 191, 71, 0.2);
     box-shadow: 0px 0px 3px 0px rgba(241, 178, 5, 0.4);
     background-color: var(--background-body);
@@ -26,7 +30,21 @@
     position: relative;
 }
 
-.placeholderInput {
+.email {
+    background: url("../../assets/user.png") no-repeat;
+    background-position-y: center;
+    background-position-x: 10px;
+}
+
+.passoword {
+    background: url("../../assets/padlock.png") no-repeat;
+    background-position-y: center;
+    background-position-x: 10px;
+}
+
+.placeholderInput, .loginLabel {
+    display: flex;
+    align-items: center;
     position: absolute;
     left: 3%;
     letter-spacing: normal;
@@ -40,12 +58,21 @@
 }
 
 .active {
-    animation: inputAnime .5s ease forwards ;
+    animation: inputAnime .3s ease forwards ;
     pointer-events: none;
 }
 
 .activeFalse {
-    animation: inputAnimeFalse .5s ease forwards ;
+    animation: inputAnimeFalse .3s ease forwards ;
+}
+
+.activeLogin {
+    animation: inputAnimeLogin .3s ease forwards ;
+    pointer-events: none;
+}
+
+.activeFalseLogin {
+    animation: inputAnimeFalseLogin .3s ease forwards ;
 }
 
 @keyframes inputAnime {
@@ -67,6 +94,27 @@
     }
     
 }
+
+@keyframes inputAnimeLogin {
+    to {
+        transform: translate(20px, -20px);
+       background-color: var(--background-body);
+       padding: 0rem .5rem;
+   }
+}
+
+@keyframes inputAnimeFalseLogin {
+   from {
+       transform: translate(20px, -20px);
+       background-color: var(--background-body);
+       padding: 0rem .5rem;
+   }
+   to {
+    transform: translate(0px, 0px);
+   }
+   
+}
+
 
 .error {
     color: rgb(240, 118, 118);

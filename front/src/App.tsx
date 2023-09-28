@@ -6,6 +6,7 @@ import Home from "./Home/Home";
 import Footer from "./Footer";
 import Login from "./Login/Login";
 import { GlobalUser } from "./globalContext";
+import Sidenav from "./Sidenav";
 
 function App() {
   return (
@@ -14,9 +15,10 @@ function App() {
         <GlobalUser>
           <div className="app">
           <Header />
+          <Sidenav />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/authenticate/*" element={<Login />} />
+            <Route path="/*" element={<Home />} />
+            <Route path="authenticate/*" element={<Login />} />
           </Routes>
           <Footer />
           </div>

@@ -20,18 +20,6 @@ type globalContext = {
   login: boolean;
 };
 
-type MongooseErrorDuplicate = {
-  code: number;
-  value: {
-    email?: string;
-    cpf: string;
-  };
-};
-
-type MongooseErrorDuplicateValue = {
-  email?: string;
-  cpf?: string;
-};
 
 const GlobalContext = React.createContext<null | globalContext>(null);
 
@@ -81,7 +69,7 @@ export function GlobalUser({ children }: React.PropsWithChildren) {
         const { url, options } = GET_USER_POST(token);
         const response = await fetch(url, options);
         const json = await response.json();
-        if (!response.ok) throw new Error(json.err); // usuario invalido
+        if (!response.ok) throw new Error(json.error); // usuario invalido
         if (checkUser<GET_USER_TOKEN_VERIFY>(json, ["password", "email"])) {
           setLogin(true);
           setData(json);
@@ -102,7 +90,7 @@ export function GlobalUser({ children }: React.PropsWithChildren) {
       const { url, options } = GET_TOKEN(body);
       const response = await fetch(url, options);
       const json = await response.json();
-      if (!response.ok) throw new Error(json.err);
+      if (!response.ok) throw new Error(json.error);
       window.localStorage.setItem("token", json.token);
       getUser(json.token)
     } catch (err) {
@@ -121,11 +109,7 @@ export function GlobalUser({ children }: React.PropsWithChildren) {
       const response = await fetch(url, options);
       const json = await response.json();
       if (!response.ok) {
-        if (json.code === 11000) {
-          if (json.value.email) throw new Error("Email duplicado");
-          if (json.value.cpf) throw new Error("CPF duplicado");
-        }
-        throw new Error(json.err);
+        throw new Error(json.error);
       }
       window.localStorage.setItem("token", json.token);
       getUser(json.token);

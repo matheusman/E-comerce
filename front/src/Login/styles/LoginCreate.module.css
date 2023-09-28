@@ -8,7 +8,7 @@
 .login  {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, minmax(5rem, 1fr));
+    grid-template-rows: 1fr auto;
     gap: .3rem;
 }
 

@@ -11,13 +11,13 @@
 }
 
 .header {
+    background-color: rgb(194, 163, 230);
     top: 0px;
     position: fixed;
     width: 100%;
     display: grid;
     grid-template-columns: minmax(100px, 1fr) 1fr 1fr;
     align-items: center;
-    border: 1px solid black;
     padding: 1rem 2.5rem;
     z-index: 100;
     height: var(--heigth-header);

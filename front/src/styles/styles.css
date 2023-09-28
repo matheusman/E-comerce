@@ -35,3 +35,45 @@ li {
 a {
     text-decoration: none;
 }
+
+.animeLeft {
+    transform: translateX(-20px);
+    opacity: 0;
+    animation: animeLeft .3s forwards;
+}
+
+.lostPassword {
+    position: relative;
+    font-size: 0.8rem;
+    color: rgb(114, 114, 114);
+    letter-spacing: 1px;
+    transition: all .3s;
+}
+
+.lostPassword:hover {
+    color: rgb(78, 74, 74);
+    cursor: pointer;
+}
+
+.lostPassword::after {
+    position: absolute;
+    bottom: 0px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+}
+
+.title {
+    letter-spacing: 2px;
+    font-size: 1.6rem;
+
+}
+
+@keyframes animeLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    } 
+}

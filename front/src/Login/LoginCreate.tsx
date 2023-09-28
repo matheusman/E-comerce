@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./styles/LoginCreate.module.css";
 import useForm from "../Hooks/useForm";
 import Input from "../components/Input";
-import { CREATE_CLIENTE_ACOUNT, createUserFetch } from "../api";
 import { UserData } from "../globalContext";
 import validateCPF from "./verifyForms/validateCPF";
 import Button from "../components/Button";
@@ -51,11 +50,9 @@ function LoginCreate() {
       createUserFetch();
     }
   };
-  React.useEffect( () => {
-    console.log(loading)
-  }, [loading])
+  
   return (
-    <form className={styles.loginForm} onSubmit={handleSubmit}>
+    <form className={`${styles.loginForm} animeLeft`} onSubmit={handleSubmit}>
       <h2>Create account</h2>
       <div className={styles.login}>
         <Input type="text" name="username" label="Nome" {...username} />

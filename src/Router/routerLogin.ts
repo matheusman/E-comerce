@@ -14,7 +14,6 @@ type userTypeResPassword = {
   dateBrith: Date;
 };
 
-
 type MongooseErrorDuplicate = {
   keyValue : {
     email? : string;
@@ -47,7 +46,13 @@ router.post(
       res.send({ user, token });
     } catch (err) {
       if (checkErrorDuplicate<MongooseErrorDuplicate>(err)) {
-        return res.status(401).send({code : err.code, value : err.keyValue})
+        if (err.keyValue.email) {
+          return res.status(401).send({error : "Email duplicado"})
+        }
+        if (err.keyValue.cpf) {
+          return res.status(401).send({error : "CPF duplicado"})
+        }
+        return res.status(401).send({error : "Erro de Request"})
       }
       return res.status(400).send({ error: "Registro falho" });
     }
