@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./styles/styles.css";
+import "./styles/styles.scss";
 import Header from "./Header";
 import Home from "./Home/Home";
 import Footer from "./Footer";
@@ -20,7 +20,6 @@ function App() {
             <Route path="/*" element={<Home />} />
             <Route path="authenticate/*" element={<Login />} />
           </Routes>
-          <Footer />
           </div>
         </GlobalUser>
       </BrowserRouter>

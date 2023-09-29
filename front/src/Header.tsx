@@ -1,11 +1,12 @@
 import React from "react";
-import styles from "./styles/Header.module.css";
+import styles from "./styles/Header.module.scss";
 import { User } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import Search from "./components/Search";
 import ButtonSearch from "./components/ButtonSearch";
 import logo from "./assets/logo-triangular.png";
 import { UserData } from "./globalContext";
+import { ShoppingCart } from 'lucide-react';
 
 export type focusSearch = {
   focus: boolean;
@@ -28,6 +29,7 @@ function Header() {
         <nav className={styles.user}>
           {data ? (
             <div className={styles.user}>
+              <ShoppingCart/>
               <div>{data.username}</div>
               <button onClick={userLogout}>Sair</button>
             </div>

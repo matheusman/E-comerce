@@ -1,7 +1,5 @@
 import React from "react";
 
-type eventInput = React.ChangeEvent<HTMLInputElement>;
-
 type inputTypesRegex = {
   email: {
     regex: RegExp;
@@ -79,7 +77,6 @@ export default function useForm<K extends keyof inputTypesRegex>(input?: K) {
       setError("Preencha um valor.");
       return false;
     } else if (!typesInput[input].regex.test(value)) {
-      console.log(typesInput[input].regex.test(value));
       setError(typesInput[input].error);
       return false;
     } else {

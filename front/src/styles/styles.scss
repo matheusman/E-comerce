@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+@import '../Home/styles/HomePageIndex.module';
+@import '../Home/styles/Product.module';
+
 :root {
     --background-body : white;
     --font-familyPopp : 'Poppins', sans-serif;
@@ -42,6 +45,12 @@ a {
     animation: animeLeft .3s forwards;
 }
 
+.animeTop {
+    transform: translateY(-30px);
+    opacity: 0;
+    animation: animeTop .4s forwards;
+}
+
 .lostPassword {
     position: relative;
     font-size: 0.8rem;
@@ -75,5 +84,12 @@ a {
     to {
         opacity: 1;
         transform: translateX(0px);
+    } 
+}
+
+@keyframes animeTop {
+    to {
+        opacity: 1;
+        transform: translateY(0px);
     } 
 }

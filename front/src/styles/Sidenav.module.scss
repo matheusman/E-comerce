@@ -1,32 +1,74 @@
-$roxo: rgba(0, 0, 0, 0.5);
-
-@mixin hoverNav {
+@mixin afterNav($nav) {
+  $colorAfter: black;
+  $size: 3px;
+  $time: 0.5s;
   content: "";
   display: block;
-  width: 100%;
-  height: 2px;
+  position: relative;
+  bottom: $size;
+  border-bottom: 2px solid $colorAfter;
+  border-radius: 20px;
+  transition: all .5s;
+  cursor: pointer;
+  @if ($nav == true) {
+    width : 0%;
+  } @else {
+    width : 100%;
+  }
+}
+
+
+@mixin navLine {
+  li {
+    &::after {
+      @include afterNav(true)
+    }
+    &:hover {
+      &::after {
+        @include afterNav(false)
+      }
+    }
+  }
 }
 
 .nav {
+  $animation: true;
+  $primari-color: rgb(182, 141, 230);
+  $pad: 1rem;
+  $header: 5rem;
+  top: 0px;
+  border-bottom: 1px solid black;
   position: fixed;
-  top: 6rem;
+  padding-top: $header;
+  width: 100%;
+  background-color: $primari-color;
+  z-index: 50;
   ul {
-    cursor : pointer;
-
+    margin: auto;
     display: flex;
-    gap: 10px;
-    padding: 0rem 1rem;
-  }
-  ul li {
-    &::before {
-        @include hoverNav();
-        background-color: aqua;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: $pad;
+    height: 4rem;
+    li {
+      $color: #fff;
+      padding: 10px 10px 0px 10px;
+      color: $color;
+      cursor: pointer;
     }
     &:hover {
-      &::before {
-        @include hoverNav();
-        background-color: black;
-      }
+      @include navLine()
     }
+  }
+}
+
+@keyframes sideNav {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
   }
 }

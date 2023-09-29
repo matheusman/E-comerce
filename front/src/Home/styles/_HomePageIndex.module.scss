@@ -1,0 +1,29 @@
+@import '../../styles/mixins.scss';
+
+.squareProduct {
+    padding-top : 8rem;
+    width: 1000px;
+    margin: auto;
+    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+}
+
+.product {
+    $color-line : black;
+    $color-letter : black;
+    @include productSection($color-line, );
+    .promocao {
+        @include promocao($color-line);
+    }
+    &:hover {
+        color: $color-letter;
+        cursor: pointer;
+        p{
+            @include hoverProduct();
+        }
+        .promocao {
+            @include promocao($color-line);
+        }   
+    }
+}

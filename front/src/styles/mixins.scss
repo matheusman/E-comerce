@@ -1,0 +1,42 @@
+@mixin promocao ($color-line, $color-letter : black) {
+    color : $color-letter;
+    text-decoration-line: line-through;
+    text-decoration-color: $color-line;
+}
+
+@mixin productSection ($color : rgba(0, 0, 0, 0.2), $letter : black) {
+    text-decoration: none;
+    color: $letter;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 2rem;
+    border: 1px solid $color;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    transition: all 0.4s;
+}
+
+@mixin carrocelProduct ($color : rgba(0, 0, 0, 0.2), $leter : black) {
+    text-decoration: none;
+    color: $letter;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 2rem;
+    border: 1px solid $color;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    transition: all 0.4s;
+}
+
+@mixin hoverProduct ($line : black) {
+    text-decoration-line: underline;
+    text-decoration-color: $line;
+}

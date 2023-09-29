@@ -1,14 +1,14 @@
 import React from 'react'
 import { Routes, Route } from 'react-router'
-import Header from '../Header'
-import Footer from '../Footer'
+import Product from './Product'
 import HomePageIndex from './HomePageIndex'
 
 function Home() {
   return (
     <div>
         <Routes>
-          <Route path='/' element={<HomePageIndex />}/>
+          <Route path='/*' element={<HomePageIndex />}/>
+          <Route path="/product" element={<Product />}/>
         </Routes>
 
     </div>
