@@ -1,7 +1,10 @@
 @import "../../styles/mixins.scss";
 
+$remTop : 10rem;
+
 .showProduct {
-    padding-top: 10rem;
+  overflow: hidden;
+  padding-top: $remTop;
 }
 
 .product {
@@ -13,35 +16,187 @@
 }
 
 @function iconImg($icon) {
-    @return url("../../assets/" + $icon + '.jpg');
+  @return url("../../assets/" + $icon + ".jpg");
 }
 
 .pod {
-    display: block;
-    width: 100%;
-    height: 80%;
-    background-size: cover;
-    $url : iconImg('pod');
-    background: $url no-repeat center center;
+  display: block;
+  width: 100%;
+  height: 80%;
+  background-size: cover;
+  $url: iconImg("pod");
+  background: $url no-repeat center center;
 }
 
 .descricao {
-    grid-column-start: 1;
-    grid-column-end: -1;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    padding: 2rem;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding: 2rem;
 }
 
+
 .carrocel {
-    width: 200vh;
-    display: flex;
-    padding: 20px;
-    gap: 30px;
+    position: relative;
+    $line: rgba(0, 0, 0, 0.2);
+    $back: rgba(156, 156, 156, 0.808);
+    .showCarrocel {
+        width: 200vh;
+        display: flex;
+        margin-left: 30px;
+        padding: 30px;
+        gap: 30px;
+    }
+  .productCarrocel {
+    @include productSection($line);
+    &:hover {
+      @include hoverProduct;
+    }
+  }
+  .next,
+  .prev {
+    @include nextContet($back);
+  }
+  .prev {
+    z-index: 1;
+    cursor: pointer;
+    left: -20px;
+    top: 50%;
+    transform: translateX(0px);
+    transform: translateY(-50%);
+  }
+  .next {
+    &:active {
+        .showCarrocel {
+            background-color: black;
+        }
+    }
+    z-index: 1;
+    cursor: pointer;
+    right: -20px;
+    top: 50%;
+    transform: translateX(0px);
+    transform: translateY(-50%);
+  }
+        
+}
+
+
+.productClientBuy {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    .quantidade {
+        display: flex;
+        gap: 20px;
+        button {
+            $color-button-buy : rgb(153, 125, 82);
+            $color-button-buy-hover : rgb(241, 229, 211);
+            width: 30px;
+            height: 30px;
+            border: none;
+            background-color: $color-button-buy;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s;
+            color: white;
+            &:hover {
+                cursor: pointer;
+                background-color: $color-button-buy-hover;
+            }
+        }
+    }
+}
+
+.table {
+    display: none;
     overflow: hidden;
-    .productCarrocel {
-        @include productSection();
+    opacity: 0;
+    $back-table : rgba(255, 255, 255, 0.801);
+    position: fixed;
+    top: $remTop;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $back-table;
+    z-index: 1000;
+    width: 500px;
+    border: 1px solid rgba(0, 0, 0, 0.301);
+    border-radius: 10px;
+    padding: 3rem;
+    &.activeTable {
+        animation: opacity 0.3s;
+        display: block;
+        opacity: 1;
+    }
+    h2 {
+        position: absolute;
+        font-size: 2rem;
+        top: 10px;
+        right: 20px;
+        cursor: pointer;
+        font-family: 'Merriweather Sans', sans-serif;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        justify-content: center;
+        align-items: center;   
+        div {
+            $color : black;
+            $cartao-back-color-even : rgba(179, 179, 179, 0.459);
+            $cartao-back-color-odd : rgba(255, 255, 255, 0.911);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            border-radius: 4px;
+            color: $color;
+            &:nth-child(even) {
+                background-color: $cartao-back-color-odd;
+            }
+            &:nth-child(odd) {
+                background-color: $cartao-back-color-even;
+            }
+            li {
+                border-radius: 4px;
+                font-size: 1rem;
+            }
+        } 
+    }
+}
+
+.active {
+    animation: animationCarrocel 0.2s forwards;
+}
+
+$px : -1000px;
+$pxPlus : 100px;
+
+@keyframes animationCarrocel {
+    to {
+        transform: translateX($px);
+    }
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+    to { 
+        opacity: 1;
+    }
+}
+
+@keyframes animationCarrocelPlus {
+    to {
+        transform: translateX($pxPlus);
     }
 }

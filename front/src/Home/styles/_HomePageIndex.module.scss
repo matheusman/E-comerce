@@ -10,11 +10,11 @@
 }
 
 .product {
-    $color-line : black;
+    $color-line : rgba(0, 0, 0, 0.2 );
     $color-letter : black;
-    @include productSection($color-line, );
+    @include productSection($color-line);
     .promocao {
-        @include promocao($color-line);
+        @include promocao($color-letter);
     }
     &:hover {
         color: $color-letter;

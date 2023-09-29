@@ -13,7 +13,7 @@ function HomePageIndex() {
           <p>Pod ignite sabor manga e sadasdioashdh saodha siodhoi sahd ioh dasiod</p>
           <div>
             <p className={styles.promocao}>R$ 104,52</p>
-            <p>R$ 80,90</p>
+            <p>R$ {}</p>
           </div>
         </div>
         </NavLink>
