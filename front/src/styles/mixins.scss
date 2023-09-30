@@ -5,6 +5,29 @@
   text-decoration-color: $color-line;
 }
 
+@mixin font ($family : initial, $size : initial, $letter : initial) {
+    font-family: $family;
+    font-size: $size;
+    letter-spacing: $letter;
+}
+
+@mixin button-product ($color : black, $back-color : white, $font-fami : sans-serif) {
+    color : $color;
+    background-color: $back-color;
+    width: 120px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    @include font($font-fami, 0.8rem)
+}
+
+@mixin button-product-hover ($color, $back) {
+    color: darken($color, 5%);
+    background-color: darken($back, 10%);
+}
+
+
 @mixin productSection($color: black, $letter: black) {
   position: relative;
   text-decoration: none;
@@ -23,7 +46,7 @@
 }
 
 @mixin hoverProduct($line: black) {
-    cursor: pointer;
+  cursor: pointer;
   text-decoration-line: underline;
   text-decoration-color: $line;
 }
@@ -36,4 +59,23 @@
   border: none;
   font-size: 2rem;
   background-color: $back;
+}
+
+@mixin transitionCarrocel ($car) {
+  transform: translateX($car + 100px);
+}
+
+@mixin buttonShow ($color, $back) {
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: $color;
+  background-color: $back;
+  cursor: pointer;
+  &:hover {
+    background-color: darken($back, 5%);
+    color: darken($color, 5%);
+  }
 }

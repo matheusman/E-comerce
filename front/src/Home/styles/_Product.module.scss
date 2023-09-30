@@ -1,6 +1,7 @@
 @import "../../styles/mixins.scss";
 
-$remTop : 10rem;
+$remTop: 7rem;
+$mg-top : 15px;
 
 .showProduct {
   overflow: hidden;
@@ -38,18 +39,20 @@ $remTop : 10rem;
   padding: 2rem;
 }
 
+$transition : 0px;
 
 .carrocel {
-    position: relative;
-    $line: rgba(0, 0, 0, 0.2);
-    $back: rgba(156, 156, 156, 0.808);
-    .showCarrocel {
-        width: 200vh;
-        display: flex;
-        margin-left: 30px;
-        padding: 30px;
-        gap: 30px;
-    }
+  position: relative;
+  $line: rgba(0, 0, 0, 0.2);
+  $back: rgba(156, 156, 156, 0.808);
+  .showCarrocel {
+    width: 200vh;
+    display: flex;
+    margin-left: 30px;
+    padding: 30px;
+    gap: 30px;
+    transition: all 1s;
+  }
   .productCarrocel {
     @include productSection($line);
     &:hover {
@@ -69,11 +72,6 @@ $remTop : 10rem;
     transform: translateY(-50%);
   }
   .next {
-    &:active {
-        .showCarrocel {
-            background-color: black;
-        }
-    }
     z-index: 1;
     cursor: pointer;
     right: -20px;
@@ -81,122 +79,215 @@ $remTop : 10rem;
     transform: translateX(0px);
     transform: translateY(-50%);
   }
-        
 }
 
-
 .productClientBuy {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    .quantidade {
-        display: flex;
-        gap: 20px;
-        button {
-            $color-button-buy : rgb(153, 125, 82);
-            $color-button-buy-hover : rgb(241, 229, 211);
-            width: 30px;
-            height: 30px;
-            border: none;
-            background-color: $color-button-buy;
-            border-radius: 50%;
-            font-size: 1.4rem;
-            color: black;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.5s;
-            color: white;
-            &:hover {
-                cursor: pointer;
-                background-color: $color-button-buy-hover;
-            }
-        }
+  $family : 'Cabin', sans-serif;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  h2 {
+    font-family: $family;
+  }
+  .preco {
+    font-family: $family;
+    font-size: 2rem;
+  }
+  .cartao {
+
+    width: 10rem;
+    text-align: center;
+    $colorText : rgba(0, 0, 0, 0.5);
+    $color-hover : rgba(0, 0, 0, 0.3);
+    font-family: $family;
+    font-size: 1rem;
+    margin: 10px 10px 20px 10px;
+    color: $colorText;
+    transition: color 0.5s;
+    &:hover {
+      color: $color-hover;
+      cursor: default;
     }
+    &::after {
+      content: '';
+      display: block;
+      background-color: currentColor;
+      height: 2px;
+      width: 100%;
+
+    }
+  }
+  .quantidade {
+    margin : $mg-top;
+
+    display: flex;
+    gap: 20px;
+    button {
+      $color-button-buy: rgb(153, 125, 82);
+      $color-button-buy-hover: rgb(241, 229, 211);
+      width: 30px;
+      height: 30px;
+      border: none;
+      background-color: $color-button-buy;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.5s;
+      color: white;
+      &:hover {
+        cursor: pointer;
+        background-color: $color-button-buy-hover;
+      }
+    }
+  }
+  .parcela {
+    $color: rgb(255, 255, 255);
+    $back-color-product-parcela: rgb(56, 81, 117);
+    transition: all 0.4s;
+    @include button-product($color, $back-color-product-parcela, sans-serif);
+    &:hover {
+      @include button-product-hover($color, $back-color-product-parcela);
+    }
+  }
+}
+
+.bodyAll {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.212);
+  z-index: 1000;
+  overflow: hidden;
+  display: none;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s;
+  &.activeTable {
+    display: none;
+  }
 }
 
 .table {
-    display: none;
-    overflow: hidden;
-    opacity: 0;
-    $back-table : rgba(255, 255, 255, 0.801);
-    position: fixed;
-    top: $remTop;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: $back-table;
-    z-index: 1000;
-    width: 500px;
-    border: 1px solid rgba(0, 0, 0, 0.301);
-    border-radius: 10px;
-    padding: 3rem;
-    &.activeTable {
-        animation: opacity 0.3s;
-        display: block;
-        opacity: 1;
+    position: absolute;
+  $back-table: rgba(255, 255, 255, 0.801);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $back-table;
+  width: 500px;
+  border: 1px solid rgba(0, 0, 0, 0.301);
+  border-radius: 10px;
+  padding: 3rem;
+  h2 {
+    position: absolute;
+    font-size: 2rem;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+  font-family: sans-serif;
+
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    div {
+      $color: black;
+      $cartao-back-color-even: rgba(179, 179, 179, 0.459);
+      $cartao-back-color-odd: rgba(255, 255, 255, 0.911);
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+      border-radius: 4px;
+      color: $color;
+      &:nth-child(even) {
+        background-color: $cartao-back-color-odd;
+      }
+      &:nth-child(odd) {
+        background-color: $cartao-back-color-even;
+      }
+      li {
+        padding: 3px;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-family: 'Nunito', sans-serif
+      }
+      p {
+        font-family: 'Nunito', sans-serif;
+      }
     }
-    h2 {
-        position: absolute;
-        font-size: 2rem;
-        top: 10px;
-        right: 20px;
-        cursor: pointer;
-        font-family: 'Merriweather Sans', sans-serif;
-    }
-    ul {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        justify-content: center;
-        align-items: center;   
-        div {
-            $color : black;
-            $cartao-back-color-even : rgba(179, 179, 179, 0.459);
-            $cartao-back-color-odd : rgba(255, 255, 255, 0.911);
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            width: 100%;
-            border-radius: 4px;
-            color: $color;
-            &:nth-child(even) {
-                background-color: $cartao-back-color-odd;
-            }
-            &:nth-child(odd) {
-                background-color: $cartao-back-color-even;
-            }
-            li {
-                border-radius: 4px;
-                font-size: 1rem;
-            }
-        } 
-    }
+  }
 }
 
 .active {
-    animation: animationCarrocel 0.2s forwards;
+  animation: animationCarrocel 0.2s forwards;
 }
 
-$px : -1000px;
-$pxPlus : 100px;
+$px: -1000px;
+$pxPlus: 100px;
 
 @keyframes animationCarrocel {
-    to {
-        transform: translateX($px);
-    }
+  to {
+    transform: translateX($px);
+  }
 }
 
 @keyframes opacity {
-    from {
-        opacity: 0;
-    }
-    to { 
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes animationCarrocelPlus {
-    to {
-        transform: translateX($pxPlus);
+  to {
+    transform: translateX($pxPlus);
+  }
+}
+
+.select {
+  outline: none;
+  padding: 8px;
+  border-radius: 8px;
+  width: 180px;
+  &:hover {
+    outline: none;
+  }
+}
+
+.buttonProduct {
+  $width : 300px;
+  margin-top: 10px;
+  gap: 10px;
+  $color-button :rgb(79, 101, 161) ;
+  $back-button : #ebebeb;
+  $color-button-comprar : hsl(0, 0%, 100%);
+  $back-button-comprar : rgb(91, 182, 79);
+  display: grid;
+  width: $width;
+  grid-template-columns: repeat(auto-fit, minmax($width, 1fr));
+  button {
+    &:nth-child(2) {
+      @include buttonShow ($color-button-comprar, $back-button-comprar);
     }
+    &:nth-child(1) {
+      @include buttonShow ($back-button, $color-button);
+    }
+  }
+}
+
+.buttonCep {
+  $color-cep : white;
+  $back-cep : rgb(111, 198, 248);
+  @include buttonShow ($color-cep, $back-cep);
 }

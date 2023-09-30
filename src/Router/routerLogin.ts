@@ -2,7 +2,6 @@ import { Router, Request, Response } from "express";
 import Users from "../Model/Users";
 import bcrypt from "bcrypt";
 import { createJWT } from "../Middlewares/jwtCraete";
-import { MongooseError } from "mongoose";
 const router: Router = Router();
 
 type userTypeResPassword = {
