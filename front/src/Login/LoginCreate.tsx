@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles/LoginCreate.module.css";
+import styles from "./styles/LoginCreate.module.scss";
 import useForm from "../Hooks/useForm";
 import Input from "../components/Input";
 import { UserData } from "../globalContext";

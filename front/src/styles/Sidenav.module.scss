@@ -53,6 +53,7 @@
     padding: $pad;
     height: 4rem;
     li {
+      list-style-type: none;
       $color: #fff;
       padding: 10px 10px 0px 10px;
       color: $color;

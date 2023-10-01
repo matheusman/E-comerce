@@ -3,6 +3,7 @@ import pod from "../assets/pod.jpg";
 import styles from "./styles/_Product.module.scss";
 import useForm from "../Hooks/useForm";
 import Input from "../components/Input";
+import info from '../assets/information.png'
 
 function Product() {
   const [next, setNext] = React.useState<boolean>(false);
@@ -122,78 +123,49 @@ function Product() {
               <button className={styles.buttonCep}>Calcular Valor</button>
             </div>
           </div>
-          <div className={styles.descricao}>
-            <p>Descrição</p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-              praesentium incidunt est, natus architecto reiciendis nesciunt
-              animi, beatae dolores porro officia voluptates. Officiis earum
-              laborum, commodi eos repellendus corrupti ut!
-            </p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-            <p>5000 MHA</p>
-            <p>Ignite</p>
-          </div>
         </div>
-        <footer className={styles.carrocel}>
-          <button
-            className={`${styles.next}`}
-            onPointerDown={() => setCountClick(cont + 1)}
-          >
-            {">"}
-          </button>
-          <button className={styles.prev}>{"<"}</button>
-          <div
-            className={`${styles.showCarrocel}`}
-            style={{ transform: `translateX(-${countClick * 100}px)` }}
-          >
-            <div className={styles.productCarrocel}>
-              <img src={pod} />
-              <p>Pod aniosdoiasndiosno</p>
-              <p>R$ 100,00</p>
-            </div>
-            <div className={styles.productCarrocel}>
-              <img src={pod} />
-              <p>Pod aniosdoiasndiosno</p>
-              <p>R$ 100,00</p>
-            </div>
-            <div className={styles.productCarrocel}>
-              <img src={pod} />
-              <p>Pod aniosdoiasndiosno</p>
-              <p>R$ 100,00</p>
-            </div>
-            <div className={styles.productCarrocel}>
-              <img src={pod} />
-              <p>Pod aniosdoiasndiosno</p>
-              <p>R$ 100,00</p>
-            </div>
-            <div className={styles.productCarrocel}>
-              <img src={pod} />
-              <p>Pod aniosdoiasndiosno</p>
-              <p>R$ 100,00</p>
-            </div>
-            <div className={styles.productCarrocel}>
-              <img src={pod} />
-              <p>Pod aniosdoiasndiosno</p>
-              <p>R$ 100,00</p>
-            </div>
-            <div className={styles.productCarrocel}>
-              <img src={pod} />
-              <p>Pod aniosdoiasndiosno</p>
-              <p>R$ 100,00</p>
-            </div>
-            <div className={styles.productCarrocel}>
-              <img src={pod} />
-              <p>Pod aniosdoiasndiosno</p>
-              <p>R$ 100,00</p>
-            </div>
-            <div className={styles.productCarrocel}>
-              <img src={pod} />
-              <p>Pod aniosdoiasndiosno</p>
-              <p>R$ 100,00</p>
-            </div>
+        <div className={styles.descricao}>
+          <div className={styles.info}>
+            <img src={info} alt="" />
+            <h1>Descrição do Produto</h1>
           </div>
-        </footer>
+          <ul className={styles.descricaoDetalhe}>
+            <h2>Bateria</h2>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasddaasdasd</li>
+          </ul>
+          <ul className={styles.descricaoDetalhe}>
+            <h2>Bateria</h2>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasddaasdasd</li>
+          </ul>
+          <ul className={styles.descricaoDetalhe}>
+            <h2>Bateria</h2>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasddaasdasd</li>
+          </ul>
+          <ul className={styles.descricaoDetalhe}>
+            <h2>Bateria</h2>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasdda</li>
+            <li>asdasddaasdasd</li>
+          </ul>
+        </div>
       </div>
     </div>
   );

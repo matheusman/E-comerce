@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+
+$remTop: 7rem;
+$remTopLogin : 10rem;
+
 @mixin promocao($color-line : black, $color-letter: black) {
   color: $color-letter;
   text-decoration-line: line-through;
@@ -74,6 +78,7 @@
   color: $color;
   background-color: $back;
   cursor: pointer;
+  transition: all .5s;
   &:hover {
     background-color: darken($back, 5%);
     color: darken($color, 5%);

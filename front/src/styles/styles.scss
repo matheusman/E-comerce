@@ -23,18 +23,12 @@ body {
 }
 
 .app {
-    height: 120vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    height: 140vh;
+    padding-top: 100px;
 }
 
 label {
     cursor: text;
-}
-
-li {
-    list-style-type: none;
 }
 
 a {
@@ -51,6 +45,10 @@ a {
     transform: translateY(-30px);
     opacity: 0;
     animation: animeTop .4s forwards;
+}
+
+li {
+    list-style-type: none;
 }
 
 .lostPassword {

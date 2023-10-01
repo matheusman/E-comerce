@@ -35,9 +35,9 @@ $paddingH : .6rem;
 }
 
 .search {
+    padding: 0.7rem 1.3rem;
     width: calc(100% - 20%);
     height: 100%;
-    padding: var($paddingH);
     outline: none;
     border: 1px solid var(--border-color);
     border-top-left-radius: 10px;
@@ -56,7 +56,7 @@ $paddingH : .6rem;
 }
 
 .focusHeader {
-    box-shadow: 1px 1px 3px 2px rgba(181, 218, 133, 0.603);
+    box-shadow: 1px 1px 3px 2px rgba(95, 174, 219, 0.603);
 }
 
 .button {
@@ -94,4 +94,13 @@ $paddingH : .6rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    gap: 10px;
+    .car {
+        height: 50px;
+        color: black;
+    }
+    .map {
+        height: 50px;
+        color: black;
+    }
 }

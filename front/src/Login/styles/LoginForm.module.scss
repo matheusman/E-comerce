@@ -1,5 +1,7 @@
+@import '../../styles/mixins.scss';
+
 .loginStart {
-    margin-top: var(--heigth-header);
+    padding-top: $remTopLogin;
     border: 1px solid rgba(0, 0, 0, 0.2);
     padding: 2rem;
     border-radius: 10px;

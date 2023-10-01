@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles/LoginForm.module.css";
+import styles from "./styles/LoginForm.module.scss";
 import stylesInput from "../components/styles/Input.module.css";
 import Input from "../components/Input";
 import useForm from "../Hooks/useForm";

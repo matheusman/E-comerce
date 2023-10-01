@@ -1,11 +1,9 @@
 @import "../../styles/mixins.scss";
 
-$remTop: 7rem;
-$mg-top : 15px;
+$mg-top: 15px;
 
 .showProduct {
   overflow: hidden;
-  padding-top: $remTop;
 }
 
 .product {
@@ -39,7 +37,7 @@ $mg-top : 15px;
   padding: 2rem;
 }
 
-$transition : 0px;
+$transition: 0px;
 
 .carrocel {
   position: relative;
@@ -82,7 +80,7 @@ $transition : 0px;
 }
 
 .productClientBuy {
-  $family : 'Cabin', sans-serif;
+  $family: "Cabin", sans-serif;
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
@@ -94,11 +92,10 @@ $transition : 0px;
     font-size: 2rem;
   }
   .cartao {
-
     width: 10rem;
     text-align: center;
-    $colorText : rgba(0, 0, 0, 0.5);
-    $color-hover : rgba(0, 0, 0, 0.3);
+    $colorText: rgba(0, 0, 0, 0.5);
+    $color-hover: rgba(0, 0, 0, 0.3);
     font-family: $family;
     font-size: 1rem;
     margin: 10px 10px 20px 10px;
@@ -109,16 +106,15 @@ $transition : 0px;
       cursor: default;
     }
     &::after {
-      content: '';
+      content: "";
       display: block;
       background-color: currentColor;
       height: 2px;
       width: 100%;
-
     }
   }
   .quantidade {
-    margin : $mg-top;
+    margin: $mg-top;
 
     display: flex;
     gap: 20px;
@@ -173,7 +169,7 @@ $transition : 0px;
 }
 
 .table {
-    position: absolute;
+  position: absolute;
   $back-table: rgba(255, 255, 255, 0.801);
   left: 50%;
   top: 50%;
@@ -189,8 +185,7 @@ $transition : 0px;
     top: 10px;
     right: 20px;
     cursor: pointer;
-  font-family: sans-serif;
-
+    font-family: sans-serif;
   }
   ul {
     display: flex;
@@ -218,10 +213,10 @@ $transition : 0px;
         padding: 3px;
         border-radius: 4px;
         font-size: 1rem;
-        font-family: 'Nunito', sans-serif
+        font-family: "Nunito", sans-serif;
       }
       p {
-        font-family: 'Nunito', sans-serif;
+        font-family: "Nunito", sans-serif;
       }
     }
   }
@@ -266,28 +261,69 @@ $pxPlus: 100px;
 }
 
 .buttonProduct {
-  $width : 300px;
+  $width: 300px;
   margin-top: 10px;
   gap: 10px;
-  $color-button :rgb(79, 101, 161) ;
-  $back-button : #ebebeb;
-  $color-button-comprar : hsl(0, 0%, 100%);
-  $back-button-comprar : rgb(91, 182, 79);
+  $color-button: rgb(79, 101, 161);
+  $back-button: #ebebeb;
+  $color-button-comprar: hsl(0, 0%, 100%);
+  $back-button-comprar: rgb(91, 182, 79);
   display: grid;
   width: $width;
   grid-template-columns: repeat(auto-fit, minmax($width, 1fr));
   button {
     &:nth-child(2) {
-      @include buttonShow ($color-button-comprar, $back-button-comprar);
+      @include buttonShow($color-button-comprar, $back-button-comprar);
     }
     &:nth-child(1) {
-      @include buttonShow ($back-button, $color-button);
+      @include buttonShow($back-button, $color-button);
     }
   }
 }
 
 .buttonCep {
-  $color-cep : white;
-  $back-cep : rgb(111, 198, 248);
-  @include buttonShow ($color-cep, $back-cep);
+  $color-cep: white;
+  $back-cep: rgb(111, 198, 248);
+  @include buttonShow($color-cep, $back-cep);
+}
+
+.descricao {
+  margin: auto;
+  width: 1000px;
+  padding-top: 5rem;
+  .info {
+    display: flex;
+    gap: 10px;
+    height: 32px;
+    align-items: center;
+  }
+  .descricaoDetalhe {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0.5rem 1.5rem;
+    li {
+      display: flex;
+      align-items: center;
+      color: rgb(94, 94, 94);
+      padding: 1px;
+      font-size: 0.9rem;
+      margin-left: 15px;
+
+      &::before {
+        content: "";
+        position: relative;
+        top: 2px;
+        right: 2px;
+        display: inline-block;
+        background-color: currentColor;
+        height: 1px;
+        width: 8px;
+        border-radius: 10px;
+        border: 1px solid currentColor;
+        transform: scale(0.6);
+      }
+    }
+  }
 }
